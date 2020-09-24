@@ -1,0 +1,128 @@
+$black-derco: #393939;
+$gris-derco:#edecec;
+$secondary-derco: white;
+
+//Font
+$hind : 'Hind Siliguri',sans-serif;
+.section2{
+    background-color: $gris-derco;
+    .destacadosHomeContainer{
+        background-color: $secondary-derco;
+        position: relative;
+        z-index: 10;
+        margin-top: -40px;
+        border-radius: 50px;
+        padding: 40px 30px;
+        .titleSection{
+            margin-bottom: 25px;
+            text-align: center;
+            h1{
+                color: $black-derco;
+                font-family: $hind;
+                font-weight: 400;
+                font-size: 30px;
+                margin: 0;
+                span{
+                  font-family: $hind;
+                  font-weight: 700;
+                }
+            }
+            @media(max-width:767px){
+                padding: 25px 0px;
+                h1{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+//Auto Item
+.autoItem{
+   .logoBrand{
+       max-width: 110px;
+       margin: auto;
+       margin-bottom: 15px;
+   } 
+}
+
+
+
+
+//Swiper BannerHome
+.slideImage,
+.slideDimensions {
+  width: 100%;
+}
+.sliderContainer {
+  width: 100%;
+}
+
+/* Bullets */
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 65px;
+}
+
+.swiper-pagination-bullet {
+    width: 30px;
+    height: 4px;
+    display: inline-block;
+    border-radius: 0%;
+    background: rgba(255,255,255,0.6);
+    border: 0px solid white;
+    opacity : 1 !important;
+    outline: none;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 30px;
+    height: 4px;
+    background: white;
+    background: rgba(255,255,255,1);
+    border: 1px solid white;
+    outline: none;
+}
+
+
+@media(max-width: 767px){
+    .slideImage,
+    .slideDimensions {
+        height: 550px;
+    }
+    .swiper-pagination-bullet {
+        width: 20px;
+        height: 4px;
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 20px;
+        height: 4px;
+    }
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-container-horizontal>.swiper-pagination-bullet {
+        bottom: 5px;
+    }
+}
+@media(min-width: 768px){
+    .slideImage,
+    .slideDimensions {
+        height: 425px;
+    }
+}
+@media(min-width: 1024px){
+    .slideImage,
+    .slideDimensions {
+        height: 550px;
+    }
+}
+@media(min-width: 1250px){
+    .slideImage,
+    .slideDimensions {
+        height: 600px;
+    }
+}
