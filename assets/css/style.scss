@@ -312,6 +312,17 @@ header {
       color: white;
     }
   }
+  @media (max-width: 767px) {
+      justify-content: center;
+      a{
+        min-width: 230px;
+      }
+      button{
+        margin-top: 15px;
+        min-width: 230px;
+      }
+
+  }
 }
 
 //Paginacion
@@ -431,6 +442,7 @@ header {
       font-family: $hind;
       font-weight: 700;
       font-size: 18px;
+      margin-top: 20px;
     }
     .inputContainer{
       display: flex;
@@ -452,6 +464,7 @@ header {
         outline: none;
         border-radius: 25px;
         padding: 8px 5px;
+        width: 100%;
         text-align: center;
       }
       .maxPrice{
@@ -460,7 +473,32 @@ header {
         flex-direction: column;
       }
     }
-    
+    .options{
+      color: white;
+      text-align: center;
+    }
+    button{
+      color: white;
+      border: 1px solid white;
+      background-color: $rojo-derco;
+      padding: 8px 40px;
+        font-family: $hind;
+        font-weight: 400;
+        font-size: 16px;
+      border-radius: 25px;
+      width: 100%;
+      transition: 0.4s all;
+    }
+    button:hover{
+      color: white;
+      border: 1px solid $black-derco;
+      background-color: $black-derco;
+    }
+    @media (max-width:767px){
+      button{
+        margin-top: 20px;
+      }
+    }
   }
 }
 
@@ -507,3 +545,5 @@ header {
     margin: auto;
   }
 }
+
+

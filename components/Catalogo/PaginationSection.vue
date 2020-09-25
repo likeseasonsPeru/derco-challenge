@@ -43,8 +43,8 @@
                 <div class="col-12 col-md-6">
                 <label for="preciomin">Desde $</label>
                 <input 
-                    :v-model="preciomin" 
-                    type="text"
+                    v-model="preciomin" 
+                    type="number"
                     name="preciomin" 
                     class="inputModal"
                     placeholder="Precio mínimo"
@@ -53,8 +53,8 @@
                 <div class="col-12 col-md-6">
                     <label for="preciomin">Hasta $</label>
                     <input 
-                        :v-model="preciomax" 
-                        type="text"
+                        v-model="preciomax" 
+                        type="number"
                         name="preciomax"
                         class="inputModal"
                         placeholder="Precio máximo"
@@ -65,6 +65,28 @@
         <h4>
             Marcas
         </h4>
+        <b-form-checkbox-group
+        v-model="selectedBrands"
+        :options="brands"
+        class="mb-3 options"
+        value-field="item"
+        text-field="name"
+        ></b-form-checkbox-group>
+
+        <div class="col-12">
+            <b-row>
+                <div class="col-12 col-md-6">
+                <button @click="cleanFiltes">
+                    Limpiar Filtros
+                </button>
+            </div>
+            <div class="col-12 col-md-6">
+                <button @click="sendFilters">
+                    Aplicar Filtros
+                </button>
+            </div>
+            </b-row>
+        </div>
       </b-modal>
   </b-container>
 </template>
@@ -84,6 +106,26 @@ export default {
             preciomin: 0,
             preciomax: 0,
             auth: null,
+            brands:[
+                {
+                    item: 'Suzuki',
+                    name: 'Suzuki',
+                },
+                {
+                    item: 'Mazda',
+                    name: 'Mazda',
+                },
+                {
+                    item: 'Greatwall',
+                    name: 'Greatwall',
+                },
+                {
+                    item: 'Changan',
+                    name: 'Changan',
+                }
+                
+            ],
+            selectedBrands:[]
         }
     },
     components:{
@@ -108,8 +150,11 @@ export default {
 
         this.preciomin = this.$route.query.preciomin || 0
         this.preciomax = this.$route.query.preciomax || 0
-        if(this.$route.query.marcas)
+        if(this.$route.query.marcas){
             this.brandFilter = this.$route.query.marcas.split(',')
+            this.selectedBrands = this.brandFilter;
+        }
+            
        await this.getAutos(this.preciomin, this.preciomax,this.brandFilter);
        //await this.getToken();
     },
@@ -153,11 +198,20 @@ export default {
        goTop(){
             window.scrollTo(0,0);
        },
-       /*async getToken (){
-           const data = await sendQuotation();
-           this.auth = data;
-           console.log("getToken -> data", data)
-       }*/
+       sendFilters () {
+           let linkMarca='marcas=';
+            linkMarca = linkMarca +this.selectedBrands.join();
+           let linkPrecio= '&preciomin=&preciomax=';
+           if(this.preciomin >0 || this.preciomax>0)
+            linkPrecio=`&preciomin=${this.preciomin}&preciomax=${this.preciomax}`
+        
+            window.location.href=`/catalogo?${linkMarca}${linkPrecio}`;
+       },
+       cleanFiltes(){
+           this.preciomin = 0
+           this.preciomax = 0
+           this.selectedBrands = []
+       }
     }
 }
 </script>

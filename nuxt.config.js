@@ -26,9 +26,10 @@ export default {
   ],
 
   env: {
-    slidersURL: 'http://suzuki-middleware.qa.dercoperu.soho.cl/api/v4/resources/home',
-    versionsURL: 'http://suzuki-middleware.qa.dercoperu.soho.cl/api/v4/versions',
-    sucursales: 'http://suzuki-middleware.qa.dercoperu.soho.cl/api/v4/subsidiaries/selling',
+    slidersURL: 'https://middleware.derco.com.pe/api/v4/resources/home',
+    versionsURL: 'https://middleware.derco.com.pe/api/v4/versions',
+    sucursales: 'https://middleware.derco.com.pe/api/v4/subsidiaries/selling',
+    authToken: 'https://cotizaciones.derco.com.pe/oauth/token',
   },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
