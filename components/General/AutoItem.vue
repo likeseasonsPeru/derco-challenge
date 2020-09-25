@@ -40,11 +40,11 @@
                 </b-card-text>
         </b-tab>
     </b-tabs>
-    <a 
-        :href="`/cotizar?modelo=${car.model.slug}&version=${car.name}`" 
+    <nuxt-link 
+        :to="`/cotizar?modelo=${car.model.slug}&version=${car.name}`" 
         class="linkCotizar">
         Cotizar
-    </a>
+    </nuxt-link>
  </b-col>
 </template>
 
