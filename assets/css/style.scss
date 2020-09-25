@@ -200,7 +200,24 @@ sans-serif;
 .autoItem:hover {
   border: 2px solid $rojo-derco;
 }
-
+//Marcas
+.sectionMarcas{
+  ul{
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+      li{
+        list-style: none;
+        img{
+          width: 100%;
+          max-width: 110px;
+        }
+      }
+  }
+}
 //Layout
 footer {
   background-color: $rojo-derco;
@@ -302,9 +319,11 @@ header {
 .paginationStyle {
   margin: auto;
   margin-top: 40px;
+  justify-content: center;
+  
 
   .page-item {
-    a {
+    button {
       border-radius: 50px;
       border: 1px solid $rojo-derco;
       margin: 0px 3px;
@@ -340,6 +359,25 @@ header {
   .page-item:last-child .page-link {
     border-radius: 50px;
   }
+
+  @media(max-width:767px){
+    .page-item {
+      a {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .disabled span {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 .rowModelos{
   background-color: white;
@@ -347,4 +385,10 @@ header {
   padding: 40px 15px;
   min-height: 800px;
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loading-gif{
+    width: 80px;
+  }
 }

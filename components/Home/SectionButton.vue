@@ -2,7 +2,7 @@
   <b-container class="section3Home">
       <b-row>
           <div class="col-12">
-              <nuxt-link to="/catalogo/todos/1">
+              <nuxt-link to="/catalogo">
                 Ver todos los <span>modelos</span>
               </nuxt-link>
           </div>
