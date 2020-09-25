@@ -235,12 +235,14 @@ footer {
   }
 }
 
-header{
-    background-color: #bd2725;
-    img{
-        max-width: 80px;
-    }
+header {
+  background-color: #bd2725;
+
+  img {
+    max-width: 80px;
+  }
 }
+
 //Swiper BannerHome
 .slideImage,
 .slideDimensions {
@@ -252,37 +254,97 @@ header{
 }
 
 //Catalogo
-.sectionCatalogo{
-    background-color: $gris-derco;
-    padding: 40px 0px;
+.sectionCatalogo {
+  background-color: $gris-derco;
+  padding: 40px 0px;
 }
-.buttonActions{
-    justify-content: space-between;
-    button, a{
-        color: $rojo-derco;
-        padding: 10px 40px;
-        border: 1px solid $rojo-derco;
-        border-radius: 25px;
-        text-align: center;
-        font-family: $hind;
-        font-weight: 400;
-        font-size: 16px;
-        text-decoration: none;
-        transition: 0.4s all;
-        span{
-            font-weight: 700;
-        }
-        svg{
-            margin-right: 10px;
-        }
+
+.buttonActions {
+  justify-content: space-between;
+
+  button,
+  a {
+    color: $rojo-derco;
+    padding: 10px 40px;
+    border: 1px solid $rojo-derco;
+    border-radius: 25px;
+    text-align: center;
+    font-family: $hind;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.4s all;
+
+    span {
+      font-weight: 700;
     }
-    button:hover, a:hover{
-        color: white;
-        background-color: $black-derco;
-        border: 1px solid $black-derco;
-        text-decoration: none;
-        path{
-            color: white;
-        }
+
+    svg {
+      margin-right: 10px;
     }
+  }
+
+  button:hover,
+  a:hover {
+    color: white;
+    background-color: $black-derco;
+    border: 1px solid $black-derco;
+    text-decoration: none;
+
+    path {
+      color: white;
+    }
+  }
+}
+
+//Paginacion
+
+.paginationStyle {
+  margin: auto;
+  margin-top: 40px;
+
+  .page-item {
+    a {
+      border-radius: 50px;
+      border: 1px solid $rojo-derco;
+      margin: 0px 3px;
+      color: $rojo-derco;
+      outline: none;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+    }
+  }
+
+  .page-item.active .page-link {
+    color: white;
+    border: 1px solid $rojo-derco;
+    background-color: $rojo-derco;
+  }
+
+  .page-item .page-link:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .disabled span {
+    border-radius: 50px;
+    border: 1px solid $rojo-derco;
+    margin: 0px 3px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    border-radius: 50px;
+  }
+}
+.rowModelos{
+  background-color: white;
+  border-radius: 40px;
+  padding: 40px 15px;
+  min-height: 800px;
+  margin-top: 40px;
 }
