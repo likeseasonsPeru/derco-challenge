@@ -348,3 +348,40 @@ header {
   min-height: 800px;
   margin-top: 40px;
 }
+
+// Cotizar
+
+.cotizar{
+  background-color: $gris-derco;
+
+  .formulario{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .linkVolver {
+    color: $rojo-derco;
+    border: solid 1px $rojo-derco;
+    padding: 10px 100px;
+    font-family: $hind;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: $gris-derco;
+    text-align: center;
+    border-radius: 25px;
+    transition: 0.4s all;
+  
+  }
+  
+  .linkVolver:hover {
+    background-color: $rojo-derco;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .recoger-datos{
+    width: 100%;
+  }
+  
+}

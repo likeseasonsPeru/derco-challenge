@@ -1,0 +1,62 @@
+{
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "PaginationSection": {
+    "description": "Auto imported from components/Catalogo/PaginationSection.vue"
+  },
+  "LazyPaginationSection": {
+    "description": "Auto imported from components/Catalogo/PaginationSection.vue"
+  },
+  "AutoItem": {
+    "description": "Auto imported from components/General/AutoItem.vue"
+  },
+  "LazyAutoItem": {
+    "description": "Auto imported from components/General/AutoItem.vue"
+  },
+  "Formulario": {
+    "description": "Auto imported from components/Cotizar/Formulario.vue"
+  },
+  "LazyFormulario": {
+    "description": "Auto imported from components/Cotizar/Formulario.vue"
+  },
+  "SectionButton": {
+    "description": "Auto imported from components/Home/SectionButton.vue"
+  },
+  "LazySectionButton": {
+    "description": "Auto imported from components/Home/SectionButton.vue"
+  },
+  "SectionModelos": {
+    "description": "Auto imported from components/Home/SectionModelos.vue"
+  },
+  "LazySectionModelos": {
+    "description": "Auto imported from components/Home/SectionModelos.vue"
+  },
+  "SwiperSlider": {
+    "description": "Auto imported from components/Home/SwiperSlider.vue"
+  },
+  "LazySwiperSlider": {
+    "description": "Auto imported from components/Home/SwiperSlider.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Layout/Footer/Footer.vue"
+  },
+  "LazyFooter": {
+    "description": "Auto imported from components/Layout/Footer/Footer.vue"
+  },
+  "Marcas": {
+    "description": "Auto imported from components/Layout/Footer/Marcas.vue"
+  },
+  "LazyMarcas": {
+    "description": "Auto imported from components/Layout/Footer/Marcas.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Layout/Header/index.vue"
+  },
+  "LazyHeader": {
+    "description": "Auto imported from components/Layout/Header/index.vue"
+  }
+}

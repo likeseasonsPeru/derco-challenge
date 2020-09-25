@@ -1,0 +1,23 @@
+[
+  {
+    "name": "cotizar",
+    "path": "/cotizar",
+    "component": "/Users/antonyalfredoculquicarranza/Desktop/derco-lic/derco-challenge/pages/cotizar.vue",
+    "chunkName": "pages/cotizar",
+    "_name": "_d4c8027a"
+  },
+  {
+    "name": "catalogo-modelo-page",
+    "path": "/catalogo/:modelo?/:page?",
+    "component": "/Users/antonyalfredoculquicarranza/Desktop/derco-lic/derco-challenge/pages/catalogo/_modelo/_page.vue",
+    "chunkName": "pages/catalogo/_modelo/_page",
+    "_name": "_7e8c1202"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/antonyalfredoculquicarranza/Desktop/derco-lic/derco-challenge/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_c7011daa"
+  }
+]
