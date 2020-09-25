@@ -147,7 +147,12 @@ data() {
       },
       async getAuto (modelo, version){
         let autos = await this.$store.getters['autos/getAllBrandCars']
-        this.auto = autos.filter(auto => (auto.model.slug === modelo && auto.name===version))
+        let result = autos.filter(auto => (auto.model.slug === modelo && auto.name===version))
+        if(result.length > 1)
+          this.auto.push(result[0])
+        else{
+          this.auto = result;
+        }
         console.log("getAuto -> this.auto", this.auto)
        }
     }

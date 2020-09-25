@@ -7,7 +7,7 @@
                     :style="{width : '12px', height: '12px'}"
                 /> Volver al <span>inicio</span>
             </nuxt-link>
-            <button :click="showModal">
+            <button @click="showModal">
                 <font-awesome-icon 
                     icon="filter"
                     :style="{width : '12px', height: '12px'}"
@@ -30,14 +30,48 @@
                 ></b-pagination>
           </b-col>
       </b-row>
-      <b-modal ref="modal-filtros" hide-footer hide-header>
-        <p class="my-4">Hello from modal!</p>
-    </b-modal>
+      <b-modal 
+        ref="modal-filtros" 
+        hide-footer
+        class="filtroModal"
+        title="Filtro de búsqueda">
+        <h4>
+            Rango de precios
+        </h4>
+        <b-col sm="12" class="inputContainer">
+            <b-row>
+                <div class="col-12 col-md-6">
+                <label for="preciomin">Desde $</label>
+                <input 
+                    :v-model="preciomin" 
+                    type="text"
+                    name="preciomin" 
+                    class="inputModal"
+                    placeholder="Precio mínimo"
+                >
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="preciomin">Hasta $</label>
+                    <input 
+                        :v-model="preciomax" 
+                        type="text"
+                        name="preciomax"
+                        class="inputModal"
+                        placeholder="Precio máximo"
+                    >
+                </div>
+            </b-row>
+        </b-col>
+        <h4>
+            Marcas
+        </h4>
+      </b-modal>
   </b-container>
 </template>
 
 <script>
 import AutoItem from '~/components/General/AutoItem.vue'
+//import {sendQuotation} from '~/endpoints';
 export default {
     data(){
         return{
@@ -48,7 +82,8 @@ export default {
             pages: null,
             brandFilter:[],
             preciomin: 0,
-            preciomax: 0
+            preciomax: 0,
+            auth: null,
         }
     },
     components:{
@@ -72,13 +107,11 @@ export default {
        await this.$store.dispatch('autos/getAllCars');
 
         this.preciomin = this.$route.query.preciomin || 0
-        console.log("mounted -> preciomin", this.preciomin)
         this.preciomax = this.$route.query.preciomax || 0
-        console.log("mounted -> preciomax", this.preciomax)
         if(this.$route.query.marcas)
             this.brandFilter = this.$route.query.marcas.split(',')
-        console.log("mounted -> brandFilter", this.brandFilter)
        await this.getAutos(this.preciomin, this.preciomax,this.brandFilter);
+       //await this.getToken();
     },
     methods:{
        async getAutos (preciomin, preciomax, brandFilter) {
@@ -103,9 +136,6 @@ export default {
             this.autos = this.autos.filter(
                 auto => (auto.minPrice > parseInt(preciomin) && auto.minPrice < parseInt(preciomax)))
         }
-
-         console.log("getAutos -> this.autos", this.autos)
-
          //Data for pagination
          this.pages = this.autos.length % this.perPage === 0 ? 
                         Math.floor(this.autos.length/this.perPage) :
@@ -122,7 +152,12 @@ export default {
        },
        goTop(){
             window.scrollTo(0,0);
-       }
+       },
+       /*async getToken (){
+           const data = await sendQuotation();
+           this.auth = data;
+           console.log("getToken -> data", data)
+       }*/
     }
 }
 </script>
