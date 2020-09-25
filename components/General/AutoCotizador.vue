@@ -40,17 +40,12 @@
                 </b-card-text>
         </b-tab>
     </b-tabs>
-    <a 
-        :href="`/cotizar?modelo=${car.model.slug}&version=${car.name}`" 
-        class="linkCotizar">
-        Cotizar
-    </a>
  </b-col>
 </template>
 
 <script>
 export default {
-    name: 'AutoItem',
+    name: 'AutoCotizador',
     props: {
         car: Object
     }
