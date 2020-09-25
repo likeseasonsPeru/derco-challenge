@@ -6,7 +6,7 @@
               <a href="/" class="linkVolver">Volver</a>
           </b-col-12>
       </b-row>
-      
+       <b-form @submit="onSubmit" @reset="onReset" v-if="show"> 
        <b-row class="formulario">
            <b-col md="12" class="text-center my-2">
                <h4>Formulario de <strong>Regístro</strong></h4>
@@ -71,9 +71,35 @@
 
                    <b-col md="6">
                 <b-form-group  id="input-group-1"  label="Concesionario" label-for="input-1" >
-                <b-form-input  id="input-1" v-model="form.email"  type="email"  required  placeholder="Enter email"
-                ></b-form-input>
+               <b-form-select
+          id="input-3"
+          v-model="form.concesionario"
+          :options="concesionario"
+          required
+        ></b-form-select>
             </b-form-group>
+                   </b-col>
+
+
+            <b-col md="12">
+                <b-form-group id="input-group-4">
+        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+          <b-form-checkbox value="me">Mis datos personales serán tratados conforme a la Cláusula Informativa que he leído.</b-form-checkbox>
+        </b-form-checkbox-group>
+      </b-form-group>
+                <p class="my-3">
+                  Derco podrá enviarme información sobre promociones y ofertas comerciales de sus productos y servicios, conforme a la Cláusula de Datos Personales:</p>
+                   </b-col>
+                    <b-form-group  class="ml-3 mb-4 mt-2">
+      <b-form-radio v-model="selected" name="some-radios" value="A">Sí, autorizo a Derco.</b-form-radio>
+      <b-form-radio v-model="selected" name="some-radios" value="B">No autorizo, prefiero perder la oportunidad de recibir ofertas y promociones.</b-form-radio>
+    </b-form-group>
+                <b-col md="12" class="text-center mt-2">
+                
+                <b-form-group  id="input-group-1" label-for="input-1" >
+                <b-button type="submit" variant="danger">Enviar</b-button>
+            </b-form-group>
+           
                    </b-col>
 
                   
@@ -95,6 +121,7 @@
                 <a href="/" class="linkVolver">Volver al <strong>Inicio</strong></a>
               </b-col>
         </b-row>
+        </b-form>
   </b-container>
 </template>
 
@@ -108,13 +135,15 @@ data() {
           name: '',
           food: null,
           provincia : null,
+          concesionario: null,
           checked: [],
           model: '',
           version: '',
           
         },
         foods: [{ text: 'Seleccione una opción', value: null }, 'DNI', 'CPE'],
-        provincia: [{ text: 'Seleccione una opción', value: null }, 'DNI', 'CPE'],
+        provincia: [{ text: 'Seleccione una opción', value: null }, 'Lima'],
+        concesionario: [{ text: 'Seleccione una opción', value: null }, 'Derco'],
         show: true,
         auto:[],
       }
@@ -138,6 +167,7 @@ data() {
         this.form.name = ''
         this.form.food = null
         this.form.provincia = null
+        this.form.concesionario = null
         this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false
@@ -147,12 +177,7 @@ data() {
       },
       async getAuto (modelo, version){
         let autos = await this.$store.getters['autos/getAllBrandCars']
-        let result = autos.filter(auto => (auto.model.slug === modelo && auto.name===version))
-        if(result.length > 1)
-          this.auto.push(result[0])
-        else{
-          this.auto = result;
-        }
+        this.auto = autos.filter(auto => (auto.model.slug === modelo && auto.name===version))
         console.log("getAuto -> this.auto", this.auto)
        }
     }

@@ -533,6 +533,38 @@ header {
     color: #fff;
   }
 
+  input, select{
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+
+  button {
+    color: #fff;
+    background: $rojo-derco;
+    border: 1px solid $rojo-derco;
+    padding: 5px 30px;
+    font-family: $hind;
+    font-weight: 400;
+    border-radius: 20px;
+    font-size: 21px;
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-decoration: none;
+    transition: 0.4s all;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  button:hover {
+    color: white;
+    background-color: $black-derco;
+    border: 1px solid $black-derco;
+  }
+
   .recoger-datos{
     width: 100%;
   }
@@ -545,5 +577,6 @@ header {
     margin: auto;
   }
 }
+
 
 
