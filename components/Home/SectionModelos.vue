@@ -8,55 +8,31 @@
         </b-col>
       </b-row>
       <b-row>
-          <b-card no-body class="autoItem">
-            <img class="logoBrand" src="" alt="">
-            <b-tabs pills card end>
-                <b-tab title="Tab 1" active>
-                    <b-card-text>
-                       <h2>
-                            Nombre modelo #1
-                        </h2>
-                        <h4>
-                            nombre Version
-                        </h4>
-                        <img class="imgAuto" src="" alt="">
-                        <h3>
-                            <span>Desde</span><br>
-                            USD #Dolares o S/ #Soles*
-                        </h3>
-                    </b-card-text>    
-                </b-tab>
-                <b-tab title="Tab 2">
-                    <b-card-text>
-                        <h2>
-                            Nombre modelo #2
-                        </h2>
-                        <h4>
-                            nombre Version
-                        </h4>
-                        <img class="imgAuto" src="" alt="">
-                        <h3>
-                            <span>Desde</span><br>
-                            USD #Dolares o S/ #Soles*
-                        </h3>
-                    </b-card-text>
-                </b-tab>
-            </b-tabs> 
-            <a href="/cotizar/#slug_name">
-                Cotizar
-            </a>
-          </b-card>
+        <AutoItem :car="auto" v-for="(auto,index) in autos" :key="index"/>
       </b-row>
     </b-container>
 </template>
-
 <script>
+//
+import AutoItem from '~/components/General/AutoItem'
 export default {
     name:'SectionModelos',
+    components:{
+        AutoItem,
+    },
     data(){
         return{
-            
+            autos:[],
         }
     },
+    async mounted() {
+        await this.$store.dispatch('autos/getAllCars');
+        await this.getDestacados();
+    },
+    methods:{
+        async getDestacados() {
+            this.autos = await this.$store.getters['autos/getAutosDestacados'];
+        }
+    }
 }
 </script>

@@ -38,15 +38,16 @@ export default {
       return this.$refs.mySwiper.$swiper
     }
   },
-  mounted() {
-    this.getBanners()
+  async mounted() {
+    await this.$store.dispatch('sliders/getAllSliders');
+    await this.getBanners();
   },
   methods: {
     async getBanners() {
       const screenWidth = window.screen.width;
-      const sliderSuzuki = await this.$store.getters.getSliderSuzuki;
-      const sliderMazda = await this.$store.getters.getSliderMazda;
-      const sliderGW = await this.$store.getters.getSliderGW;
+      const sliderSuzuki = await this.$store.getters['sliders/getSliderSuzuki'];
+      const sliderMazda = await this.$store.getters['sliders/getSliderMazda'];
+      const sliderGW = await this.$store.getters['sliders/getSliderGW'];
       if(screenWidth < 768){
         this.banners = sliderSuzuki.mobile.slice(0,2).
                     concat(sliderMazda.mobile.slice(0,2)).
@@ -61,3 +62,82 @@ export default {
   }
 }
 </script>
+
+<style>
+/* Bullets */
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  bottom: 65px;
+}
+
+.swiper-pagination-bullet {
+  width: 30px;
+  height: 4px;
+  display: inline-block;
+  border-radius: 0%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 0px solid white;
+  opacity: 1 !important;
+  outline: none;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 30px;
+  height: 4px;
+  background: white;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid white;
+  outline: none;
+}
+
+
+@media(max-width: 767px) {
+
+  .slideImage,
+  .slideDimensions {
+    height: 550px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 4px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 20px;
+    height: 4px;
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-container-horizontal>.swiper-pagination-bullet {
+    bottom: 5px;
+  }
+}
+
+@media(min-width: 768px) {
+
+  .slideImage,
+  .slideDimensions {
+    height: 425px;
+  }
+}
+
+@media(min-width: 1024px) {
+
+  .slideImage,
+  .slideDimensions {
+    height: 550px;
+  }
+}
+
+@media(min-width: 1250px) {
+
+  .slideImage,
+  .slideDimensions {
+    height: 600px;
+  }
+}
+</style>
