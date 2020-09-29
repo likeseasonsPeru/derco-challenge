@@ -19,7 +19,7 @@ export const getVersions = async (marca) => {
 }
 
 
-export const sendQuotation = async () => {
+export const accessQuotations = async () => {
   let data={
         grant_type: "password",
         username: "integracion@derco.pe",
@@ -36,4 +36,14 @@ export const sendQuotation = async () => {
       },
       body: JSON.stringify(data)
     }).then(response => response.json());
+}
+
+export const getSucursales = async (marca) => {
+  return await fetch(`${process.env.sucursales}`, {
+    method: 'GET',
+    headers: {
+      // eslint-disable-next-line prettier/prettier
+        'blog-url': marca,
+    },
+  }).then(response => response.json());
 }
